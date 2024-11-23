@@ -29,15 +29,7 @@ public class Listeners extends BaseTest implements ITestListener {
 
 	@Override
 	public void onTestFailure(ITestResult result) {
-		String screenShotPath = null;
-		test.fail(result.getThrowable()); // if the TC fail, this method fill print error message in the report
-		try {
-			driver = (WebDriver) result.getTestClass().getRealClass().getField("driver").get(result.getInstance());
-			screenShotPath = getScreenshot(result.getMethod().getMethodName(), driver);
-			test.addScreenCaptureFromPath(screenShotPath, result.getMethod().getMethodName());
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
+
 	}
 
 	@Override
